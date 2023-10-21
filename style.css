@@ -45,7 +45,6 @@ header {
   letter-spacing: 1px;
   color: white;
 }
-
 .navbar {
   display: flex;
 }
@@ -74,10 +73,6 @@ header {
 }
 
 #banner {
-  width: 100%;
-  height: 700px;
-  background-size: cover;
-  background-repeat: no-repeat;
   text-align: center;
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -229,17 +224,18 @@ header {
   margin-inline: auto;
 }
 
-.cta {
+#cta {
   background: var(--bright-navy-blue);
   padding-block: var(--section-padding);
+  color: var(--text-color);
 }
 
-.cta :is(.section-subtitle, .section-title, .section-text) {
+#cta :is(.section-subtitle, .section-title, .section-text) {
   color: var(--white);
 }
 
-.cta .section-text {
-  font-size: var(--fs-5);
+#cta p {
+  color: var(--text-color);
 }
 
 .footer-top .container {
@@ -251,11 +247,6 @@ header {
   margin: auto;
   max-width: 1000px;
   color: var(--text-color);
-  @media (max-width: 350px) {
-    .header {
-      font-size: 15px;
-    }
-  }
 }
 
 .footer-brand {
@@ -414,6 +405,7 @@ address {
 @media (max-width: 768px) {
   header {
     padding: 20px 5%; /* Reduce the padding for smaller screens */
+    position: relative; /* Add relative positioning */
   }
 
   .logo {
@@ -426,22 +418,37 @@ address {
 
   #menu-icon {
     display: block; /* Show the menu icon for smaller screens */
-  }
-
-  /* You can add additional styles for the menu icon, e.g., positioning */
-  #menu-icon {
     position: absolute;
     top: 20px;
     right: 20px;
+    z-index: 1001; /* Set a higher z-index for the menu icon to ensure it's on top */
   }
 
   #banner {
     height: auto; /* Adjust the height to auto for responsive behavior */
     width: auto;
+    padding-top: 100px; /* Add top padding to push down the banner */
+    z-index: 0; /* Set a lower z-index for the banner to appear below the header */
+  }
+
+  .about-details {
+    max-width: 100%; /* Remove max-width for the text container */
+    padding: 50px 0; /* Reset the padding to its original value */
+    text-align: center; /* Center the text */
+  }
+
+  .text-container {
+    position: relative; /* Add relative positioning */
+    top: 0; /* Reset the top property */
+    left: 0; /* Reset the left property */
+    transform: none; /* Reset the transform property */
+    width: 100%; /* Set the width to 100% */
+    padding: 0; /* Reset the padding */
   }
 
   .home-btn {
     margin: 10px; /* Add margin for better spacing */
+    text-align: center; /* Center the button text */
   }
 
   .home-btn a {
